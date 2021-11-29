@@ -2,7 +2,7 @@
 
 This is a secondary code challenge for the MWT Web Team. The purpose of this challenge is to be able to aggregate data
 from multiple sources into one view. This project uses the `https://developer.marvel.com/docs` public api and is using a
-public key you can get more information about the data structure by accessing the documentation. 
+public key. You can get more information about the data structure and queries by accessing the documentation.
 
 On the detail page for each comic listed there is currently a text listing for each character in the comic. We would
 like to change that to be a small card. This card would contain a thumbnail, the characters name, and a count of the
