@@ -6,18 +6,18 @@ export default function Comic() {
   const [comic, setComic] = React.useState()
 
   let {id} = useParams()
-  // React.useEffect(() => {
-  //   fetch(`${process.env.REACT_APP_MARVEL_URL}/comics/${id}?apikey=${process.env.REACT_APP_MARVEL_PUBLIC}`)
-  //     .then(res => {
-  //       res.json().then(json => {
-  //         setComic(json?.data?.results[0])
-  //         setLoading(false)
-  //       })
-  //     })
-  //     .catch(e => {
-  //       setLoading(false)
-  //     })
-  // }, [id])
+  React.useEffect(() => {
+    fetch(`${process.env.REACT_APP_MARVEL_URL}/comics/${id}?apikey=${process.env.REACT_APP_MARVEL_PUBLIC}`)
+      .then(res => {
+        res.json().then(json => {
+          setComic(json?.data?.results[0])
+          setLoading(false)
+        })
+      })
+      .catch(e => {
+        setLoading(false)
+      })
+  }, [id])
 
   if (loading) {
     return <div>loading</div>
@@ -40,7 +40,7 @@ export default function Comic() {
         {/*TODO ADD CHARACTER CODE HERE*/}
         <ul>
           {characters.items.map(character => {
-            return <li>{character.name}</li>
+            return <li key={character.name}>{character.name}</li>
           })}
         </ul>
       </div>
